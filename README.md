@@ -57,12 +57,16 @@ To lanch all three in a demo environment:
 ```	
         cd ros_ws
 	source devel/setup.bash
-	roslaunch typepyt_moveit_config all.launch
-```
+	roslaunch typepyt_moveit_config all.launch // Oops, no all.launch.
+	```
 
 For just Gazebo, change the last line to:
 ```	
         roslaunch typepyt typepyt.launch
+```
+For just RVIZ to tplay with the model:
+```
+	roslaunch typepyt urdf_visualize.launch model:='$(find typepyt)typepyt.urdf'
 ```
 
 This code also works with a meArm python controller (typepyt/scripts) and the MoveIt motion controller. The meArm is connected to a PCA9685 which is connected to I2C1.
