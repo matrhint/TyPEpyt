@@ -64,7 +64,7 @@ For just Gazebo, change the last line to:
 ```	
         roslaunch typepyt typepyt.launch
 ```
-For just RVIZ to tplay with the model:
+For just RVIZ to play with the model motions:
 ```
 	roslaunch typepyt urdf_visualize.launch model:='$(find typepyt)typepyt.urdf'
 ```
