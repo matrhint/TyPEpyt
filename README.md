@@ -58,8 +58,7 @@ To lanch all three in a demo environment:
         cd ros_ws
 	source devel/setup.bash
 	roslaunch typepyt_moveit_config all.launch // Oops, no all.launch.
-	```
-
+```
 For just Gazebo, change the last line to:
 ```	
         roslaunch typepyt typepyt.launch
