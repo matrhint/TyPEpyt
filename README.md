@@ -63,10 +63,18 @@ For just Gazebo, change the last line to:
 ```	
         roslaunch typepyt typepyt.launch
 ```
-For just RVIZ to play with the model motions:
+For RVIZ to play with the model motions:
 ```
 	roslaunch typepyt urdf_visualize.launch model:='$(find typepyt)typepyt.urdf'
 ```
+
+9/10/18 - Added xacro model with mimic joint plugin based on this: https://github.com/mintar/mimic_joint_gazebo_tutorial
+
+To run this new model in Gazebo:
+```
+        roslaunch typepyt gazebo.launch
+```
+I will work on the RVIZ portion soon.
 
 This code also works with a meArm python controller (typepyt/scripts) and the MoveIt motion controller. The meArm is connected to a PCA9685 which is connected to I2C1.
 
