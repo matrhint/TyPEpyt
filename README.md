@@ -67,8 +67,14 @@ For RVIZ to play with the model motions:
 ```
 	roslaunch typepyt urdf_visualize.launch model:='$(find typepyt)typepyt.urdf'
 ```
+# untested
 
-9/10/18 - Added xacro model with mimic joint plugin based on this: https://github.com/mintar/mimic_joint_gazebo_tutorial
+9/10/18 - Added xacro model with mimic joint plugin based on this demo: https://github.com/mintar/mimic_joint_gazebo_tutorial
+
+Which depends on this:
+```
+        git clone https://github.com/roboticsgroup/roboticsgroup_gazebo_plugins.git
+```
 
 To run this new model in Gazebo:
 ```
