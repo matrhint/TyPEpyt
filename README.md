@@ -71,9 +71,9 @@ For RVIZ to play with the model motions:
 
 9/10/18 - Added xacro model with mimic joint plugin based on this demo: https://github.com/mintar/mimic_joint_gazebo_tutorial
 9/13/18 - Found lots of errors in code and need: https://github.com/ros-controls/ros_controllers.git
+9/16/18 - Fixed the xacro model a little bit
 
-
-Which depends on this:
+Xacro model depends on this:
 ```
         https://github.com/roboticsgroup/roboticsgroup_gazebo_plugins.git
 ```
@@ -82,7 +82,11 @@ To run this new model in Gazebo (controls do not work 9/13/18):
 ```
         roslaunch typepyt gazebo.launch
 ```
-I will work on the RVIZ portion soon.
+To run in RVIZ:
+```
+        roslaunch typepyt urdf_visualize.launch model:='$(find typepyt)/urdf/typepyt.urdf.xacro'
+```
+
 
 This code also works with a meArm python controller (typepyt/scripts) and the MoveIt motion controller. The meArm is connected to a PCA9685 which is connected to I2C1.
 
