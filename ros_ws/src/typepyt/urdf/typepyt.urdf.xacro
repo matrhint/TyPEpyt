@@ -55,7 +55,7 @@
   <link name="world" />
  
   <joint name="fixed" type="fixed">
-    <origin xyz="0.0 -0.4 0.0" /> 
+    <origin xyz="0.0 0.0 0.0" /> 
     <parent link="world" />
     <child link="base_link" />
   </joint>
@@ -85,7 +85,7 @@
   <!-- base_link + torso -->
 
   <joint name="hip" type="revolute">
-    <origin xyz="0 0 0.25" rpy="0 0 0"/>
+    <origin xyz="0 0 0.12" rpy="0 0 0"/>
     <parent link="base_link"/>
     <child link="torso"/>
     <axis xyz="0 0 1"/>
@@ -129,10 +129,10 @@
   <!-- torso + upper_arm -->
 
   <joint name="shoulder" type="revolute">
-    <origin xyz="0.2 0 0.3" rpy="0 -1.57 0"/>
+    <origin xyz="0.2 0 0.3" rpy="0 -1.5708 0"/>
     <parent link="torso"/>
     <child link="upper_arm"/>
-    <axis xyz="0 0 0.4"/>
+    <axis xyz="0 1 0"/>
     <limit lower="0.52" upper="2.79" velocity="1.0" effort="30.0" />
     <dynamics damping="0.05" friction="0.0" />
   </joint>
@@ -161,7 +161,8 @@
 
   <transmission name="tran1">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="shoulder">             <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    <joint name="shoulder">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor1">
       <hardwareInterface>PositionJointInterface</hardwareInterface>
@@ -175,18 +176,19 @@
     <origin xyz="0 0 0.8" rpy="0 3.36 0" />
     <parent link="upper_arm" />
     <child link="upper_arm1" />
-    <axis xyz="0 0 0.8"/>
-    <limit lower="0.0" upper="0.0" velocity="0.0" effort="0.0" />
+    <axis xyz="0 -1 0"/>
+    <limit lower="0.87" upper="2.44" velocity="1.0" effort="30.0" />
+    <mimic joint="shoulder" multiplier="1" offset="0" />
     <dynamics damping="0.0" friction="0.0" />
   </joint>
 
   <xacro:mimic_joint_plugin_gazebo name_prefix="elbow"
-    parent_joint="fixed" mimic_joint="elbow"
+    parent_joint="shoulder" mimic_joint="elbow"
     has_pid="true" multiplier="1.0" max_effort="10.0" />
 
   <link name="upper_arm1">
     <visual>
-      <origin xyz="0.05 0.05 0.01"/>
+      <origin xyz="0 0 0.04"/>
       <geometry>
         <box size="0.05 0.05 0.01"/>
       </geometry>
